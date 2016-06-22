@@ -50,22 +50,22 @@
             <form class="form" id="form1" runat="server">
                 <div class="form-group">
                     <asp:Label ID="FirstNameLbl" Text="First Name" runat="server"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="FirstNameTb" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" ID="FirstNameTb" runat="server" required="true"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="LastNameLbl" Text="Last Name" runat="server"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="LastNameTb" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" ID="LastNameTb" runat="server" required="true"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="AgeLbl" Text="Age" runat="server"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="AgeTb" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" ID="AgeTb" runat="server" required="true"></asp:TextBox>
                 </div>
                 <asp:Button CssClass="btn btn-primary" ID="SubmitButton" Text="Submit" runat="server" OnClick="SubmitButton_Click"/>
                 <br/>
                 <hr/>
                 <div class="form-group">
                     <asp:Label ID="FullNameLbl" Text="Full Name" runat="server"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="FullNameTb" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" ID="FullNameTb" runat="server" required="true"></asp:TextBox>
                 </div>
             </form>
         </div>
