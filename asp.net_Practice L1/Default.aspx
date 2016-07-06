@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <!--
     Author Name: Janelle Heron
+    Student ID: 300839820   
 
     -->
 <html lang="en">
 <head runat="server">
-    <title></title>
+ 
+    
     <!--CSS Section-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
@@ -50,7 +52,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6"></div> <!--The user profile will stay in this section-->
-            <h1>User Profile</h1>
+            <h1>Janelle Heron</h1>
+            <p>Student ID: 300839820</p>
             <form class="form" id="form1" runat="server">
                 <div class="form-group">
                     <asp:Label ID="FirstNameLbl" Text="First Name" runat="server"></asp:Label>
@@ -60,18 +63,43 @@
                     <asp:Label ID="LastNameLbl" Text="Last Name" runat="server"></asp:Label>
                     <asp:TextBox CssClass="form-control" ID="LastNameTb" runat="server" required="true" CausesValidation="True"></asp:TextBox>
                 </div>
+                <!--User name -->
+                
                 <div class="form-group">
+                    <asp:Label ID="UserLb" Text="User Name" runat="server"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="UserNameTb" required="true" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" ID="UserNameReq" ControlToValidate="UserNameTb" CssClass="alert alert-danger" ErrorMessage="User Name Required" ></asp:RequiredFieldValidator>
+                </div>
+                 <div class="form-group">
                     <asp:Label ID="AgeLbl" Text="Age" runat="server"></asp:Label>
                     <asp:TextBox CssClass="form-control" ID="AgeTb" runat="server" required="true" CausesValidation="True"></asp:TextBox>
-                    <asp:RangeValidator CssClass="alert alert-danger" ID="AgeRangeValidator"  runat="server" ErrorMessage="Please enter valid age, between 1-130" MaximumValue="130" MinimumValue="1" Type="Integer" ControlToValidate="AgeTb"></asp:RangeValidator>
+                    <asp:RangeValidator CssClass="alert alert-danger" ID="AgeRangeValidator"  runat="server" ErrorMessage="Please enter valid age, between 21-30" MaximumValue="30" MinimumValue="21" Type="Integer" ControlToValidate="AgeTb"></asp:RangeValidator>
                 </div>
+                <div class="form-control">
+                    <asp:Label ID="UserEmail" Text="Email" runat="server"></asp:Label>
+                    <asp:TextBox ID="EmailTb" runat="server" required="true"></asp:TextBox>
+                    <asp:RequiredFieldValidator CssClass="alert alert-danger" ID="EmailReq" runat="server" ControlToValidate="EmailTb" ErrorMessage="Email Required!" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="emailVal" runat="server" ControlToValidate="EmailTb" ValidationExpression="^\S+@\S+\.\S+$" ErrorMessage="You must enter a valid email address!"></asp:RegularExpressionValidator>
+                </div>
+                <div class="form-group">
+                    <asp:Label ID="UserPass" Text="Password" runat="server"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="UserPassTb" TextMode="Password" Required="true" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator CssClass="alert alert-danger" ID="UserPassVal" ControlToValidate="UserPassTb" runat="server" ErrorMessage="Password Required" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                </div>
+                <div class="form-group">
+                    <asp:Label ID="UserPassConf" Text="Confirm Password" runat="server"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="UserPassConfTb" TextMode="Password" Required="true" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator CssClass="alert alert-danger" ID="UserPassConfReq" ControlToValidate="UserPassConfTb" runat="server" ErrorMessage="Password Required" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator runat="server" CssClass="alert alert-danger" ID="comparePass" ControlToCompare="UserPassTb" ControlToValidate="UserPassConfTb" ErrorMessage="Passwords do not match" SetFocusOnError="True" Display="Dynamic"></asp:CompareValidator>
+                </div>
+
                 <br/>
                 <br/>
                 <asp:Button CssClass="btn btn-primary" ID="SubmitButton" Text="Submit" runat="server" OnClick="SubmitButton_Click"/>
                 <br/>
                 <hr/>
                 <div class="form-group">
-                    <asp:Label ID="FullNameLbl" Text="Full Name" runat="server"></asp:Label>
+                    <asp:Label ID="FullNameLbl" Text="User Profile" runat="server"></asp:Label>
                     <asp:TextBox CssClass="form-control" ID="FullNameTb" runat="server"></asp:TextBox>
                 </div>
             </form>
